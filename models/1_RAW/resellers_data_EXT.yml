@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: cloud_storage
     loader: gcloud storage
-    schema: 1_RAW
+    schema: PRD_1_RAW
     tables:
       - name: resellers_data_EXT
         description: "External table from GCS"
