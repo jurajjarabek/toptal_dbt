@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: cloud_storage
+    loader: gcloud storage
+    
+    tables:
+      - name: just_test
+        external:
+          location: 'https://storage.cloud.google.com/toptal-bucket/resellers-data/DailySales_03282024_11.csv'
+          options:
+            format: csv
+            skip_leading_rows: 1
