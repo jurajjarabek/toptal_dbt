@@ -1,4 +1,6 @@
-
+{{ config(
+    schema='2_INTERIM'
+) }}
 -- Use the `ref` function to select from other models
 
 select *
