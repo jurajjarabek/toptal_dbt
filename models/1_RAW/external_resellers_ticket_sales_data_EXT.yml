@@ -5,8 +5,8 @@ sources:
     loader: gcloud storage
     schema: PRD_1_RAW
     tables:
-      - name: resellers_data_EXT
-        description: "External table from GCS"
+      - name: external_resellers_ticket_sales_data_EXT
+        description: "External table from GCS - Resellers ticket sales data"
         external:
           location: 'https://storage.cloud.google.com/toptal-bucket/resellers-data/*.csv'
           options:

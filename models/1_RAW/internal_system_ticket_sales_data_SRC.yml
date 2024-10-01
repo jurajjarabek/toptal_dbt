@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: ticket_platform_data
+    schema: B2Bticket_platform_SRC
+    tables:
+      - name: sales_extract
+        description: "Internal sales data"
