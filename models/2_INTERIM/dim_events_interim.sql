@@ -24,6 +24,7 @@ combined_events AS (
         row_number() OVER() AS row_number,
         CASE WHEN inter.event_id IS NOT NULL THEN inter.event_id 
         ELSE NULL END AS event_id,
+        organizer_id as event_organizer_id,
         inter.event_name AS event_name_inter,
         exter.event_name AS event_name_exter,
         inter.ticket_price AS ticket_price_inter,
@@ -36,6 +37,7 @@ SELECT
     -- in case event_id is missing we then need to autogenerate some key
     COALESCE(event_id,
     {{ dbt_utils.generate_surrogate_key(['row_number', 'event_name_inter','event_name_exter']) }}) AS event_id,
+    event_organizer_id,
     COALESCE(event_name_inter,event_name_exter,'N/A') as event_name,
     COALESCE(ticket_price_inter,ticket_price_exter,0) as ticket_price
 FROM combined_events
