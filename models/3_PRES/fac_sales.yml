@@ -1,0 +1,16 @@
+version: 2
+models:
+    - name: fac_sales
+      description: "Final Sales models"
+      columns:
+          - name: sale_id
+            description: "The primary key for this table, should be unique and not null"
+            tests:
+                - unique
+                - not_null
+          - name: sale_channel
+            description: "sale_channel should have values like web, mobile app and on-site"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ['on-site', 'mobile app', 'web']
